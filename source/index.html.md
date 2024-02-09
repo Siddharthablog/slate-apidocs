@@ -8,8 +8,8 @@ language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - <a href='#'>To know about me </a>
+  - <a href='https://github.com/slatedocs/slate'>click Siddhartha</a>
 
 includes:
   - errors
@@ -23,17 +23,30 @@ meta:
     content: Documentation for the Kittn API
 ---
 
-# Introduction
+# Virtual Server API
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+You can use the IBM® Power Systems™ Virtual Server to easily deploy and configure virtual servers that are running AIX, IBM i, or Linux (RHEL and SLES) workloads.
 
 This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
+# Endpoint URl
+The Power Virtual Server service uses regional endpoints over a public network. To target your region, replace `{region}` with the prefix that represents the geographic area where your service instance is located. Currently, `the us-east`, `us-south`, `eu-de`, `lon`, `tor`, `syd`, and `tok` regions are supported.
+
+> https://{region}.power-iaas.cloud.ibm.com
+
+
+The Power Virtual Server service uses regional endpoints over a private network. To target your region, replace {region} with the prefix that represents the geographic area where your service instance is located. Currently, the us-east, us-south, eu-de, eu-gb, ca-tor, au-syd, jp-tok, jp-osa, br-sao, and ca-mon regions are supported.
+
+
+> https://private.{region}.power-iaas.cloud.ibm.com
+
 # Authentication
 
-> To authorize, use this code:
+To work with the Power Virtual Server API, you must include your IBM Cloud IAM access token and the Power Virtual Server instance ID, also known as your Cloud Resource Name (CRN), in every request. The first part of your CRN contains your Tenant ID and the second part contains your Cloud Instance ID. The following example shows a typical CRN:
+
+> crn:v1:staging:public:power-iaas:us-east:a/abcdefghijklmnopqrstuvwxyzabcdef:121d5ee5-b87d-4a0e-86b8-aaff422135478::
+Tenant ID {tenant_id} = abcdefghijklmnopqrstuvwxyzabcdef
+Cloud Instance ID {cloud_instance_id} = 121d5ee5-b87d-4a0e-86b8-aaff422135478
 
 ```ruby
 require 'kittn'
@@ -130,10 +143,10 @@ This endpoint retrieves all kittens.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Parameter | Default | Description | Data Type |
+--------- | ------- | ----------- | --------  |
+include_cats | false | If set to true, the result will also include cats. | Boolean |
+available | true | If set to false, the result will include kittens that have already been adopted. | Boolean |
 
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
