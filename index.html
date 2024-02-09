@@ -303,7 +303,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-f40959bb.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
@@ -316,7 +316,10 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#virtual-server-api" class="toc-h1 toc-link" data-title="Virtual Server API">Virtual Server API</a>
+          </li>
+          <li>
+            <a href="#endpoint-url" class="toc-h1 toc-link" data-title="Endpoint URl">Endpoint URl</a>
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
@@ -340,22 +343,36 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='#'>To know about me </a></li>
+            <li><a href='https://github.com/slatedocs/slate'>click Siddhartha</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+        <h1 id='virtual-server-api'>Virtual Server API</h1>
+<p>You can use the IBM® Power Systems™ Virtual Server to easily deploy and configure virtual servers that are running AIX, IBM i, or Linux (RHEL and SLES) workloads.</p>
 
 <p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+<h1 id='endpoint-url'>Endpoint URl</h1>
+<p>The Power Virtual Server service uses regional endpoints over a public network. To target your region, replace <code>{region}</code> with the prefix that represents the geographic area where your service instance is located. Currently, <code>the us-east</code>, <code>us-south</code>, <code>eu-de</code>, <code>lon</code>, <code>tor</code>, <code>syd</code>, and <code>tok</code> regions are supported.</p>
+
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>https://{region}.power-iaas.cloud.ibm.com</p>
+</blockquote>
+
+<p>The Power Virtual Server service uses regional endpoints over a private network. To target your region, replace {region} with the prefix that represents the geographic area where your service instance is located. Currently, the us-east, us-south, eu-de, eu-gb, ca-tor, au-syd, jp-tok, jp-osa, br-sao, and ca-mon regions are supported.</p>
+
+<blockquote>
+<p>https://private.{region}.power-iaas.cloud.ibm.com</p>
+</blockquote>
+<h1 id='authentication'>Authentication</h1>
+<p>To work with the Power Virtual Server API, you must include your IBM Cloud IAM access token and the Power Virtual Server instance ID, also known as your Cloud Resource Name (CRN), in every request. The first part of your CRN contains your Tenant ID and the second part contains your Cloud Instance ID. The following example shows a typical CRN:</p>
+
+<blockquote>
+<p>crn:v1:staging:public:power-iaas:us-east:a/abcdefghijklmnopqrstuvwxyzabcdef:121d5ee5-b87d-4a0e-86b8-aaff422135478::
+Tenant ID {tenant_id} = abcdefghijklmnopqrstuvwxyzabcdef
+Cloud Instance ID {cloud_instance_id} = 121d5ee5-b87d-4a0e-86b8-aaff422135478</p>
 </blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
@@ -427,17 +444,20 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <th>Parameter</th>
 <th>Default</th>
 <th>Description</th>
+<th>Data Type</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>include_cats</td>
 <td>false</td>
 <td>If set to true, the result will also include cats.</td>
+<td>Boolean</td>
 </tr>
 <tr>
 <td>available</td>
 <td>true</td>
 <td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>Boolean</td>
 </tr>
 </tbody></table>
 
